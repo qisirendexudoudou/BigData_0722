@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.atguigu.mapper.TestResultMapMapper">
+  
+  <!-- resultMap: 结果集的映射规则
+  	查询的结果集： id,last_name,gender,email
+  	映射的对象： Employee2{id,name,sex,emailAddress}
+   -->
+   <!-- <resultMap type="com.atguigu.entity.Employee2" id="map1">
+   			声明主键列的映射
+   			<id column="id" property="id"/>
+   			声明普通列的映射
+   			<result column="last_name" property="name"/>
+   			<result column="gender" property="sex"/>
+   			<result column="email" property="emailAddress"/>
+   </resultMap>
+   
+  <select id="getEmployeeById" resultMap="map1">
+    	select * from tbl_employee where id = #{id}
+  </select> -->
+  
+  <!--  private Department dept{id,deptName};
+  		级联属性赋值方式： 属性.属性
+  		剩余的没有指定规则的列，自动映射
+  -->
+  
+  <resultMap type="com.atguigu.entity.Employee" id="map1">
+   			<!-- 声明主键列的映射 -->
+   			<id column="id" property="id"/>
+   			<!-- 声明普通列的映射 -->
+   			<result column="last_name" property="lastName"/>
+   			<result column="gender" property="gender"/>
+   			<result column="email" property="email"/>
+   </resultMap>
+  
+  <resultMap type="com.atguigu.entity.Employee" id="map2">
+  			<result column="dep_id" property="dept.id"/>
+  			<result column="dep_name" property="dept.deptName"/>
+  </resultMap>
+  
+  <resultMap type="com.atguigu.entity.Employee" id="map3" extends="map1">
+  			<!-- association：　级联属性 -->
+  			<association property="dept" javaType="com.atguigu.entity.Department">
+  				<result column="dep_id" property="id"/>
+  				<result column="dep_name" property="deptName"/>
+  			</association>
+  </resultMap>
+  
+   <select id="getEmployeeById" resultMap="map3">
+    	SELECT e.*,d.dep_name FROM tbl_employee e JOIN tbl_department d
+    	ON e.dep_id=d.id
+    	WHERE e.id = #{id}
+  </select>
+  
+  <!-- ×××××××××××××××××××××××××分割线×××××××××××××××××××××××××××× -->
+  
+	 <resultMap type="com.atguigu.entity.Department" id="map4">
+	 		<result column="dep_id" property="id"/>
+	 		<result column="dep_name" property="deptName"/>
+	 		<!-- 封装集合 List<Employee> emps 
+	 			collection：　用于封装集合类型属性
+	 		 -->
+	 		<collection property="emps" ofType="com.atguigu.entity.Employee">
+	 				<id column="id" property="id"/>
+		   			<!-- 声明普通列的映射 -->
+		   			<result column="last_name" property="lastName"/>
+		   			<result column="gender" property="gender"/>
+		   			<result column="email" property="email"/>
+	 		</collection>
+	 </resultMap>	  
+  
+  <select id="getDepartmentById" resultMap="map4">
+  		SELECT e.*,d.dep_name FROM tbl_employee e JOIN tbl_department d
+    	ON e.dep_id=d.id
+    	WHERE d.id = #{id} 
+  </select>
+  
+  
+  
+ 
+</mapper>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript">
+	 // 定义五种数据类型
+	 var a="hello";
+	 var b=1;
+	 var c=true;
+	 // 定义object类型，对象以{属性名:属性值,属性名:属性值}格式声明
+	 var d={"name":"jack","age":18};
+	 var e=function(arg){
+		 // alert为弹出一个警告提示框，显示指定的内容
+		 alert(arg);
+		 
+	 } 
+	 
+	 function hello(arg){
+		 // alert为弹出一个警告提示框，显示指定的内容
+		 alert(arg);
+		 
+	 } 
+	 
+	 // 查看类型： typeof
+	/*  alert(typeof a);
+	 alert(typeof b);
+	 alert(typeof c);
+	 alert(typeof d);
+	 alert(typeof e); */
+	 
+	 //使用函数
+	// e("hello!");
+	 hello("hello");
+	 
+		var f;
+	 // 三个特殊值
+	/*  alert(null);
+	 alert(f);
+	 alert(b/a); */
+	 
+	 
+	 
+	
+	 // 系统事件 Onload整个页面加载完成后，触发onload对应的指定的函数
+	 // 事件需要绑定函数，在事件发生时，自动执行函数
+	 window.onload=function(){
+		 
+	 	var myh1=document.getElementById("myh1");
+	 
+	 	alert(myh1.innerHTML);
+	 	
+	 	myh1.innerHTML="hello";
+	 	
+	 	var myinput=document.getElementById("myinput");
+	 	
+	 	alert(myinput.name);
+	 	myinput.name="usname";
+	 	alert(myinput.value);
+	 	myinput.value="mike";
+		 
+	 }
+	 
+
+</script>
+<title>Insert title here</title>
+</head>
+<body>
+		<h1 id="myh1">测试js</h1>
+		
+		<input id="myinput" name="username" value="jack">
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <!-- namespace: 名称空间，类似于包名。必须和接口的全类名一致 -->
+<mapper namespace="com.atguigu.mapper.EmployeeMapper">
+  <!-- select: 代表一条查询语句
+  			id: 当前sql的id，必须和接口的某个方法名一致！
+  			resultType： sql查询的结果映射的Java对象
+  			#{id}: 占位符，类似于?
+  					#{}固定格式，
+  					sql中只有一个占位符， #{xxx},xxx随意
+  					sql中有多个占位符，如果从一个POJO中取出它的属性，填充占位符，#{属性名}
+   -->
+  <select id="getEmployeeById" resultType="com.atguigu.entity.Employee">
+    	select * from tbl_employee where id = #{dfafea}
+  </select>
+  
+  <delete id="deleteEmployeeById">
+  		delete from tbl_employee where id=#{faefa}
+  </delete>
+  
+  <!--useGeneratedKeys: 是否要获取此次插入后自增的主键 
+  	  keyProperty:  主键获取后，赋值给pojo的哪个属性
+   -->
+  <insert id="insertEmployee" useGeneratedKeys="true" keyProperty="id">
+  		insert into tbl_employee(last_name,gender,email) 
+  		values(#{lastName},#{gender},#{email})
+  </insert>
+  
+  <update id="updateEmployee">
+  		update tbl_employee set last_name=#{lastName},gender=#{gender},email=#{email}
+  		where id=#{id}
+  </update>
+  
+  <!-- 返回值是list集合，需要指定resultType为list集合中的元素类型 -->
+  <select id="getEmps" resultType="com.atguigu.entity.Employee">
+  		select * from tbl_employee
+  </select>
+  
+  <!-- 返回值是Map集合，需要指定resultType为Map类型 
+  		默认只能返回单条记录
+  		
+  		map类型，已经被mybatis内定为Map类型
+  -->
+  <select id="getEmpsWithMap" resultType="map">
+  		select * from tbl_employee where id=#{id}
+  </select>
+  
+  <select id="getEmpsWithMap2" resultType="map">
+  		select * from tbl_employee where id>#{id}
+  </select>
+</mapper>

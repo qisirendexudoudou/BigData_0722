@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript" src="scripts/jquery-1.9.1.min.js"></script>
+<script type="text/javascript">
+		$(function(){
+			$("#a1").click(function(){
+				
+				var user={"id":2,"username":"tom","password":"123"}
+				
+				var userStr=JSON.stringify(user);
+				
+				$.ajax({
+					url:$(this).attr("href"),
+					type:"POST",
+					data:userStr,
+					contentType:"application/json",
+					success:function(){
+						alert(data);
+						
+					}
+				});
+				
+
+				return false;
+				
+			});
+			
+	$("#a2").click(function(){
+				$.ajax({
+					url:$(this).attr("href"),
+					type:"POST",
+					dataType:"json",
+					success:function(data){
+						console.log(data);
+						
+					}
+				});
+
+				return false;
+				
+			});
+			
+			
+			
+			
+		});
+
+
+</script>
+<title>Insert title here</title>
+</head>
+<body>
+		
+		<a href="handle12" id="a1">向后台发送ajax请求，传递数据 </a><br>
+		<a href="handle13" id="a2">向后台发送ajax请求，请求数据 </a><br>
+	
+		</form>
+
+</body>
+</html>

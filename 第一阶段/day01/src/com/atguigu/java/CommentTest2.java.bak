@@ -1,0 +1,40 @@
+
+
+/*
+	文档注释 ： java特有的
+
+	作用 ：注释内容可以被JDK提供的工具 javadoc 所解析，
+				生成一套以网页文件形式体现的该程序的说明文档。
+
+	命令 ：javadoc -d mydoc -author -version CommentTest2.java
+
+		   javadoc : 开发工具
+		   -d : 参数
+		   mydoc : 生成的说明文档所在的目录
+		   -author -version : 使用到的注解
+		   CommentTest2.java ： 源文件
+
+*/
+
+
+/**
+	@author 小龙哥
+	@version 1.0
+*/
+class CommentTest2{
+
+	/*
+		这是一个程序的入口
+	*/
+	public static void main(String[] args){
+	
+		//这是一个输出语句
+		System.out.println("ccc");
+		System.out.println(2 + 4 * 5);
+	}
+
+	public void show(){
+	
+	}
+}
+

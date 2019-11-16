@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript">
+		var person={"name":"jack","age":18} // js对象
+		alert(typeof person) ;// object
+		// 将person对象的内容转为json str
+		var personStr=JSON.stringify(person);
+		
+		alert(typeof personStr); 
+		// 将服务器响应的json字符串转为js对象，进行操作
+		var personObj=JSON.parse(personStr);
+		
+		alert(typeof personObj) ;
+		
+		
+</script>
+<title>Insert title here</title>
+</head>
+<body>
+		<a href="hello">测试cookie</a>
+
+</body>
+</html>

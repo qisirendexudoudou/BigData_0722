@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--注释  -->
+<Person id="00">
+	<name>jack</name>
+	<Phone id="phone01">
+		<brand>iphone</brand>
+		<price>1900</price>
+		<Camera>
+				<!-- 特殊字符少，可以使用转义字符 -->
+				<brand>&lt;sony&gt;</brand>
+				<!-- 特殊字符多，可以使用CDATA语法包裹 -->
+				<price><![CDATA[<<<<<1900>>>>>>]]></price>
+		</Camera>
+	</Phone>
+</Person>
+<!--JSON
+	{"id":"00","name":"jack","phone01":{"brand":"iphone"}}
+ -->

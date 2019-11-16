@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	
+	<bean id="user1" class="com.atguigu.entity.User">
+	<property name="id" value="1001"></property>
+	<property name="username" value="xiaoxu"></property>
+	<property name="password" value="123456"></property>	
+	<property name="phone" ref="phone1"></property>	
+	</bean>
+	
+	<bean id="user2" class="com.atguigu.entity.User">
+	<property name="id" value="1002"></property>
+	<property name="username" value="xiaoluo"></property>
+	<property name="password">
+	<null></null>
+	</property>
+	<property name="phone" >
+			<bean id="phone2" class="com.atguigu.entity.Phone">
+			<property name="type" value="x11max"></property>
+			<property name="price" value="10888"></property>
+			</bean>
+	</property>	
+	</bean>
+	
+	<bean id="phone1" class="com.atguigu.entity.Phone">
+	<property name="type" value="x11"></property>
+	<property name="price" value="7888"></property>
+	</bean>
+	
+</beans>

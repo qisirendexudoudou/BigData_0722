@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- 告诉容器要创建什么样的对象 
+			bean标签，代表声明一个对象
+					id: 对象唯一标识，用于从容器中取出时
+					class: 通过哪个类可以创建此对象
+	 -->
+	 <bean id="user1" class="com.atguigu.entity.User">
+	 	<!-- 为对象中的属性赋值 
+	 			property标签负责为属性赋值
+	 					name: 赋值的属性名
+	 					value: 赋值的属性值
+	 	-->
+		<property name="id" value="1"/>	 
+		<property name="username" >
+				<value>jack</value>
+		</property>
+		<property name="password" >
+			<null/>
+		</property>
+		<!--  ref： 指定引用的bean的id-->
+		<!-- <property name="phone" ref="phone1"/> -->
+		<!--
+			内部bean和外部bean：
+				内部bean：声明在一个bean内部的bean就是内部bean
+						内部bean只能被当前包裹的bean使用
+				外部bean：直接声明在<beans>标签中的bean 
+						可以 被容器及其他bean直接引用
+		 -->
+		<property name="phone" >
+				<!-- <ref bean="phone1"/> -->
+			<bean  class="com.atguigu.entity.Phone">
+		 		<property name="brand" value="iphone"/>
+		 		<property name="type" value="X11"/>
+			 </bean>
+		</property>
+	 </bean>
+	 
+	 <bean id="user2" class="com.atguigu.entity.User">
+		<property name="id" value="1"/>	 
+		<property name="username" value="mike"/>
+		<property name="password" value="123456"/>
+		<property name="phone" ref="phone2"></property>
+	 </bean>
+	 
+	 <bean id="phone1" class="com.atguigu.entity.Phone">
+	 		<property name="brand" value="iphone"/>
+	 		<property name="type" value="X"/>
+	 </bean>
+	
+
+</beans>

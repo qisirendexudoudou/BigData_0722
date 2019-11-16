@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>首页</title>
+</head>
+<body bgcolor="pink">
+<!-- 
+		action: 代表提交的url
+				url怎么写？
+					完整格式：   协议名+ip+端口号+项目+唯一标识
+							http://localhost:8080/Javaweb_Day01/login
+							
+					简写：  http://localhost:8080可以省略
+					
+					相对路径：      不 以/开头的，都是相对路径
+								相对于当前页面的父路径。
+							http://localhost:8080/Javaweb_Day01/index.html	
+					hello 会被自动拼接为		http://localhost:8080/Javaweb_Day01/hello
+					
+					绝对路径：  以/开头的，都是绝对路径。
+						如果当前页面中的 绝对路径 被浏览器解析，   http://localhost:8080 + 绝对路径
+						如果当前页面中的 绝对路径 被服务器解析， http://localhost:8080/Javaweb_Day01 + 绝对路径
+					在html页面使用绝对路径时，不要忘记加上项目名
+						http://localhost:8080/hello  
+						
+					在html中  /Javaweb_Day01/hello 等价于   hello
+		
+		method :  请求方式。在表单中，method属性，只有两种可选值  get | post，如果不显式声明，默认get
+				
+				http请求的表现形式： http报文。   
+							http报文分文 请求报文和响应报文。
+								请求报文：  浏览器发给服务器的报文。
+								响应报文：  服务器回复浏览器的报文。
+								
+							http报文格式：  报文首行（声明使用的协议版本号，url等关键信息）+
+							                                 报文头（以key-value形式表现的报文的属性）+
+							                                 
+							                                 报文体（要传递的数据） ： 只有post请求有报文体
+				
+				
+				get和post的区别：
+						get请求将参数附加在url的后边. 格式 url?参数名=参数值&参数名=参数值
+						不够隐私。
+						url的长度有有限的，最多255位。 使用get请求附加的参数也是有限的。
+						
+						POST将参数附加在请求报文体中，相对隐私一点。
+						POST请求可以添加更多的参数。
+		
+		
+		
+ -->
+		<h1>欢迎登录</h1>
+		<form action="hello1" method="get">
+				用户名称：<input name="username"  ><br>
+				用户密码：<input name="password"  type="password"> <br>
+				<input type="submit" value="Login">
+		</form>
+
+</body>
+</html>

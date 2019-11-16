@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <!-- namespace: 名称空间，类似于包名 -->
+<mapper namespace="sql">
+  <!-- select: 代表一条查询语句
+  			id: 当前sql的id
+  			resultType： sql查询的结果映射的Java对象
+  			#{id}: 占位符，类似于?
+  					#{}固定格式，
+   -->
+  <select id="selectEmp" resultType="com.atguigu.entity.Employee">
+    	select id,last_name lastName,email,gender from tbl_employee where id = #{dfafea}
+  </select>
+</mapper>

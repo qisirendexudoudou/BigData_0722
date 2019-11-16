@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.atguigu.mapper.EmployeeMapper2">
+  
+  <select id="getEmployeeById1" resultType="com.atguigu.entity.Employee">
+    	select * from tbl_employee where id = #{id}
+  </select>
+  
+   <select id="getEmployeeById2" resultType="com.atguigu.entity.Employee">
+    	select * from tbl_employee where id = #{e1.id}
+  </select>
+  
+   <select id="getEmployeeById3" resultType="com.atguigu.entity.Employee">
+    	select * from tbl_employee where id = #{arg1.b}
+  </select>
+  
+   <select id="getEmployeeById4" resultType="com.atguigu.entity.Employee">
+    	select * from tbl_employee where id = #{list[1]}
+  </select>
+  
+   <select id="getEmployeeById5" resultType="com.atguigu.entity.Employee">
+    	select * from tbl_employee where id = #{array[1]}
+  </select>
+  
+ 
+</mapper>

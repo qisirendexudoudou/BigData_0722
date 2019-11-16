@@ -1,0 +1,32 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <artifactId>child</artifactId>
+  <parent>
+  	<groupId>com.atguigu</groupId>
+  	<artifactId>parent</artifactId>
+  	<version>0.0.1-SNAPSHOT</version>
+  	<!--为了 聚合方便  -->
+  	<relativePath>../parent/pom.xml</relativePath>
+  </parent>
+  
+  
+  
+  <!-- 显式声明引入父工程的 jar包 -->
+  <!-- <dependencyManagement>
+	 <dependencies>
+	  	<dependency>
+	  		
+	  	</dependency>
+	</dependencies>
+  
+  </dependencyManagement> -->
+  
+  <!-- 引入父工程没有的 jar包 -->
+  <!-- <dependencies>
+	  	<dependency>
+	  		
+	  	</dependency>
+	</dependencies> -->
+  
+  
+</project>

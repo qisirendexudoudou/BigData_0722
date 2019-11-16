@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript" src="scripts/jquery-1.9.1.min.js"></script>
+<script type="text/javascript">
+		$(function(){
+			
+			$("#getAllEmps").click(function(){
+				// 发送ajax请求
+				$.ajax({
+					url:$(this).attr("href"),
+					type:"GET",
+					//设置dataType为json，会自动转换为JSON对象
+					dataType:"json",
+					success:function(data){
+						
+						var tableContent="<tr><th>ID</th><th>LASTNAME</th><th>GENDER</th><th>EMAIL</th><tr>"
+						// 先将data转为js对象
+						// var xxx= JSON.parse(data);
+						for(var i=0;i<data.length;i++){
+							
+							tableContent+="<tr><th>"+data[i].id+"</th><th>"+data[i].lastName+"</th><th>"+
+							data[i].gender+"</th><th>"+data[i].email+"</th><tr>";
+							
+						}
+						
+						$("#mytable").html(tableContent);
+					}
+										
+				});
+				
+				//取消a标签的跳转
+				return false;
+				
+			});
+			
+		});
+
+
+</script>
+<title>首页html</title>
+</head>
+<body bgcolor="pink">
+
+		<h1>欢迎登录</h1>
+		<form action="login" method="post">
+				用户名称：<input name="username"  ><br>
+				用户密码：<input name="password"  type="password"> <br>
+				<input type="submit" value="Login">
+		</form>
+		
+		<a id="getAllEmps" href="getAllEmps">显示所有员工</a>
+		<table id="mytable"></table>
+
+</body>
+</html>

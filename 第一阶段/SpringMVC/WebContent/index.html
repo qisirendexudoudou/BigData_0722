@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript" src="scripts/jquery-1.9.1.min.js"></script>
+<script type="text/javascript">
+		$(function(){
+			$("#a1").click(function(){
+				
+				var user={"id":2,"username":"tom","password":"123"}
+				
+				var userStr=JSON.stringify(user);
+				
+				$.ajax({
+					url:$(this).attr("href"),
+					type:"POST",
+					data:userStr,
+					contentType:"application/json",
+					success:function(){
+						alert(data);
+						
+					}
+				});
+				
+
+				return false;
+				
+			});
+			
+	$("#a2").click(function(){
+				$.ajax({
+					url:$(this).attr("href"),
+					type:"POST",
+					dataType:"json",
+					success:function(data){
+						console.log(data);
+						
+					}
+				});
+
+				return false;
+				
+			});
+			
+			
+			
+			
+		});
+
+
+</script>
+<title>Insert title here</title>
+</head>
+<body>
+		<a href="hello">hello</a>
+		<br/>
+		<form action="test/handle2" method="post">
+				<input type="submit" value="发送post请求">
+		</form>
+		<br>
+		<a href="handle1?username=tom&age=18">handle1</a>
+			<br/>
+		<form action="handle4" method="post">
+				<input name="id" value="1"><br>
+				<input name="username" value="张三"><br>
+				<input name="password" value="123"><br>
+				<input name="phone.brand" value="iphone"><br>
+				<input name="phone.type" value="x"><br>
+				<input type="submit" value="发送post请求">
+		</form>
+		<br>
+		<a href="handle5?jack=jack">handle5</a>
+		<br>
+		<a href="handle6/tom/20">handle6</a>
+		<br>
+		<a href="/SpringMVC/book/20">查询20号图书</a><br>
+		<form action="/SpringMVC/book" method="post">
+					<input type="submit" value="添加图书">
+		</form><br>
+		<form action="/SpringMVC/book/1" method="post">
+					<input name="_method" value="delete" type="hidden">
+					<input type="submit" value="删除1号图书">
+		</form><br>
+		<form action="/SpringMVC/book/1" method="post">
+					<input name="_method" value="put" type="hidden">
+					<input type="submit" value="修改1号图书">
+		</form><br>
+		
+		<a href="handle12" id="a1">向后台发送ajax请求，传递数据 </a><br>
+		<a href="handle13" id="a2">向后台发送ajax请求，请求数据 </a><br>
+
+</body>
+</html>

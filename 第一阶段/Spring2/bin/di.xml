@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+		<!-- 通过此标签指定spring扫描哪个类路径，指定后，如果类路径下，类标注了
+			 @Component, @Repository, @Service, and @Controller 
+			 这些类会探测到，之后spring在容器中自动创建这些类的对象
+			 		base-package： 扫描的类路径的根路径，扫当前路径及其子路径
+			 		
+			四个注解功能都是一样的。唯一的区别是为了标识当前类属于哪一层。
+			
+			Dao层：  @Repository
+			Service层： @Service
+			控制器层： @Controller 
+			
+			不属于以上三层：  @Component
+			
+			容器自动创建的对象，默认id为类型首字母小写。容器只会创建单例的对象。
+			
+			希望使用DI功能，需要额外导入aop包
+			
+			 
+		 -->
+		<context:component-scan base-package="com.atguigu"/>
+		
+		<bean id="qr" class="org.apache.commons.dbutils.QueryRunner"/>
+		
+		
+	
+
+</beans>
